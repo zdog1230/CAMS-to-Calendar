@@ -2,16 +2,11 @@
   "manifest_version": 2,
 
   "name": "CAMS-to-Calendar",
-  "content_scripts": [{
-	"matches": ["https://apis.google.com/*"],
-	"js": ["calendarStuff.js"]
-  }],
   "description": "This extension allows you to import your class Schedule in CAMS into your Google Calendar with the click of a button.",
   "version": "1.0",
 	"background":
   {
 	"scripts": ["thirdParty/jquery-3.2.0.js"]
-   	"scripts": ["thirdParty/googleAPI.js"]
   },
   "browser_action": {
           "default_icon": {      
@@ -21,11 +16,13 @@
 			},
 			"default_popup": "popup.html"
 	},
+	
+	"content_security_policy": "script-src 'self' https://apis.google.com object-src 'self'",
   
 	"content_scripts": [{
-		"matches": ["<all_urls>"],
+		"matches": ["<all_urls>","https://apis.google.com/js/client.js"],
 		"styles": ["style.css"],
-		"js": ["thirdParty/jquery-3.2.0.js","contentscript.js"]
+		"js": ["thirdParty/jquery-3.2.0.js","thirdParty/client.js","contentscript.js","calendarStuff.js"]
 	}],
 	
 	"permissions": [
@@ -34,6 +31,7 @@
 		"https://ajax.googleapis.com/",
 		"https://cams.floridapoly.org/*/",
 		"http://*/",
-		"https://*/"
+		"https://*/",
+		"https://www.googleapis.com/auth/calendar"
 	]
 }

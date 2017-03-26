@@ -1,5 +1,6 @@
-      // Client ID and API key from the Developer Console
-      var CLIENT_ID = '21370599354-bugutpf0e1i9fp979390m9jfmqm4tmtj.apps.googleusercontent.com';
+oauth2 auth
+Client ID and API key from the Developer Console
+      var CLIENT_ID = '21370599354-v23tpi1rh8bcod0895uc2v8ccqhcuo5d.apps.googleusercontent.com';
 
       // Array of API discovery doc URLs for APIs used by the quickstart
       var DISCOVERY_DOCS = ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"];
@@ -14,39 +15,36 @@
       /**
        *  On load, called to load the auth2 library and API client library.
        */
-      function handleClientLoad() {
+	function handleClientLoad() {
         gapi.load('client:auth2', initClient);
-      }
+	}
 
       /**
        *  Initializes the API client library and sets up sign-in state
        *  listeners.
        */
-      function initClient() {
+    function initClient() {
         gapi.client.init({
-          discoveryDocs: DISCOVERY_DOCS,
-		  client_id : CLIENT_ID,
-          scope: SCOPES
-		  
+			discoveryDocs: DISCOVERY_DOCS,
+			clientId: CLIENT_ID,
+			scope: SCOPES
         }).then(function () {
-		  appendPre("Helloq");
-		  appendPre(gapi.auth2.getAuthInstance().toString);
           // Listen for sign-in state changes.
           gapi.auth2.getAuthInstance().isSignedIn.listen(updateSigninStatus);
-			
-			
+
           // Handle the initial sign-in state.
           updateSigninStatus(gapi.auth2.getAuthInstance().isSignedIn.get());
           authorizeButton.onclick = handleAuthClick;
           signoutButton.onclick = handleSignoutClick;
         });
-      }
+		appendPre("Hello World");
+    }
 
-      /**
-       *  Called when the signed in status changes, to update the UI
-       *  appropriately. After a sign-in, the API is called.
-       */
-      function updateSigninStatus(isSignedIn) {
+    /**
+     *  Called when the signed in status changes, to update the UI
+     *  appropriately. After a sign-in, the API is called.
+     */
+    function updateSigninStatus(isSignedIn) {
         if (isSignedIn) {
           authorizeButton.style.display = 'none';
           signoutButton.style.display = 'block';
@@ -55,40 +53,40 @@
           authorizeButton.style.display = 'block';
           signoutButton.style.display = 'none';
         }
-      }
+    }
 
-      /**
-       *  Sign in the user upon button click.
-       */
-      function handleAuthClick(event) {
+    /**
+     *  Sign in the user upon button click.
+     */
+    function handleAuthClick(event) {
         gapi.auth2.getAuthInstance().signIn();
-      }
+    }
 
       /**
        *  Sign out the user upon button click.
        */
-      function handleSignoutClick(event) {
+    function handleSignoutClick(event) {
         gapi.auth2.getAuthInstance().signOut();
-      }
+    }
 
-      /**
-       * Append a pre element to the body containing the given message
-       * as its text node. Used to display the results of the API call.
-       *
-       * @param {string} message Text to be placed in pre element.
-       */
-      function appendPre(message) {
-        var pre = document.getElementById('content');
+    /**
+     * Append a pre element to the body containing the given message
+     * as its text node. Used to display the results of the API call.
+     *
+     * @param {string} message Text to be placed in pre element.
+     */
+    function appendPre(message) {
+		var pre = document.getElementById('content');
         var textContent = document.createTextNode(message + '\n');
         pre.appendChild(textContent);
-      }
+    }
 
-      /**
-       * Print the summary and start datetime/date of the next ten events in
-       * the authorized user's calendar. If no events are found an
-       * appropriate message is printed.
-       */
-      function listUpcomingEvents() {
+	/**
+	 * Print the summary and start datetime/date of the next ten events in
+	 * the authorized user's calendar. If no events are found an
+	 * appropriate message is printed.
+	 */
+    function listUpcomingEvents() {
         gapi.client.calendar.events.list({
           'calendarId': 'primary',
           'timeMin': (new Date()).toISOString(),
@@ -113,13 +111,11 @@
             appendPre('No upcoming events found.');
           }
         });
-      }
-	
-	
+    }
+	  
 	function initialize(){
-		gapi.load('client:auth2', initClient);
+		gapi.auth2.init(cliend_id=CLIENT_ID, scope=SCOPES);
 	}
-	
 	/**
 	 * Make a recurring course event with the following parameters:
 	 * courseName: The name of the course and the title of the event
@@ -167,5 +163,6 @@
 			appendPre("Event created: " + event.summary)
 		});
 	}
-	
-	handleClientLoad();
+
+
+
