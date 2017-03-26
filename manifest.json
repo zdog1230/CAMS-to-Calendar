@@ -6,14 +6,29 @@
   "version": "1.0",
 
   "browser_action": {
-    "default_icon": "128x128 Icon.png",
-    "default_popup": "popup.html"
-  },
-  "page_action": {
+          "default_icon": {      
+            "16": "icon.png",          
+            "24": "icon.png", 
+            "32": "icon.png"   
+			},
+			"default_popup": "popup.html"
+	},
   
-  }
-  "permissions": [
-    "activeTab",
-    "https://ajax.googleapis.com/"
-  ]
+	"content_scripts": [{
+		"matches": ["<all_urls>"],
+		"styles": ["style.css"],
+		"js": ["thirdParty/jquery-3.2.0.js","contentscript.js"]
+	}],
+	"background":
+    {
+        "scripts": ["thirdParty/jquery-3.2.0.js"]
+    },
+	"permissions": [
+		"activeTab",
+		"tabs",
+		"https://ajax.googleapis.com/",
+		"https://cams.floridapoly.org/*/",
+		"http://*/",
+		"https://*/"
+	]
 }
