@@ -21,15 +21,8 @@
 	},
 	
 	"content_security_policy": "script-src 'self' https://apis.google.com object-src 'self'",
-  
-	"content_scripts": [{
-		"matches": ["<all_urls>","https://apis.google.com/js/client.js"],
-		"styles": ["style.css"],
-		"js": ["thirdParty/jquery-3.2.0.js","thirdParty/client.js","contentscript.js","calendarStuff.js"]
-	}],
-	
-	"scripts": ["thirdParty/jquery-3.2.0.js"],
-  "scripts": ["thirdParty/googleAPI.js"]
+"background": {
+	"scripts": ["thirdParty/jquery-3.2.0.js"]
   },
 	"permissions": [
 		"activeTab",
