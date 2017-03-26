@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+<!--<html>
   <head>
 	<div style="height: 200px;width: 200px">
 	</div>
@@ -9,7 +8,7 @@
   <body>
     <p>Google Calendar API Quickstart</p>
 
-    <!--Add buttons to initiate auth sequence and sign out-->
+    <!--Add buttons to initiate auth sequence and sign out-
     <button id="authorize-button" style="display: none;">Authorize</button>
     <button id="signout-button" style="display: none;">Sign Out</button>
 
@@ -23,4 +22,42 @@
       onreadystatechange="if (this.readyState === 'complete') this.onload()">
     </script>
   </body>
+</html>--> <!-- Google Calendar API Test code, leave commented for now -->
+<!doctype html>
+<!--
+ This page is shown when the extension button is clicked, because the
+ "browser_action" field in manifest.json contains the "default_popup" key with
+ value "popup.html".
+ -->
+<html>
+  <head>
+    <title>CAMS-to-Calendar</title>
+    <style>
+      body {
+        font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+        font-size: 100%;
+      }
+      #status {
+        /* avoid an excessively wide status text */
+        white-space: pre;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 400px;
+      }
+    </style>
+
+    <!--
+      - JavaScript and HTML must be in separate files: see our Content Security
+      - Policy documentation[1] for details and explanation.
+      -
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+     -->
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div id="status"></div>
+    <img id="image-result" hidden>
+  </body>
 </html>
+
+>>>>>>> 8203cdf6886c03a1018f3272a4f1c00a344b143a
