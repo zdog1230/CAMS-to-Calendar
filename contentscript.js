@@ -1,6 +1,7 @@
 	
-	$(function(){alert($("#menuHiddenMessage").children().textContent)});
-	var $()
+	//$(function(){alert($("#menuHiddenMessage").children().textContent)});
+	var $foo = "HTML: " + $("#menuHiddenMessage").size();
+	$(function(){alert($foo)});
 	//$(function(){alert($("#menuHiddenMessage").textContent)});
 	
 	/*var port = chrome.runtime.connect({name: "camsApp"});

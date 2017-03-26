@@ -19,19 +19,23 @@
         overflow: hidden;
         max-width: 400px;
       }
+	  #wrapper {
+		margin:50px;
+		height:300px;
+		}
     </style>
-
-    <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-    <script src="popup.js"></script>
+	<script src="thirdParty/jquery-3.2.0.js"></script>
+    <script src="./crawler.js"></script>
   </head>
   <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
+	<div id="wrapper">
+		<div id="logo">
+			<h3 width="500px">WOW IS THIS COOL</h3>
+		</div>
+		<div id="crawl">
+			<p>nothing</p>
+		</div>
+	</div>
   </body>
 </html>
 
