@@ -1,34 +1,4 @@
-<!--<html>
-  <head>
-	<div style="height: 200px;width: 200px">
-	</div>
-    <title>Google Calendar API Quickstart</title>
-    <meta charset='utf-8' />
-  </head>
-  <body>
-    <p>Google Calendar API Quickstart</p>
-
-    <!--Add buttons to initiate auth sequence and sign out-
-    <button id="authorize-button" style="display: none;">Authorize</button>
-    <button id="signout-button" style="display: none;">Sign Out</button>
-
-    <pre id="content"></pre>
-
-	<script type="text/javascript" src="calendarStuff.js">
-    </script> 
-
-    <script async defer src="thirdParty/googleAPI.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script>
-  </body>
-</html>--> <!-- Google Calendar API Test code, leave commented for now -->
 <!doctype html>
-<!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
 <html>
   <head>
     <title>CAMS-to-Calendar</title>
@@ -48,9 +18,11 @@
 		margin:50px;
 		height:300px;
 		}
+		span {
+			display: none;
+		}
     </style>
 	<script src="thirdParty/jquery-3.2.0.js"></script>
-    <script src="./crawler.js"></script>
   </head>
   <body>
 	<div id="wrapper">
@@ -58,10 +30,18 @@
 			<h3 width="500px">WOW IS THIS COOL</h3>
 		</div>
 		<div id="crawl">
-			<p>nothing</p>
+			<div id="scheduleData">
+				<!--SCHEDULE HTML FORM GOES HERE-->
+			</div>
+			<div id="dateData">
+			
+			</div>
 		</div>
+	<button id="import">IMPORT</button>
+	<p id="arrayStr"></p>
+	<script src="./crawler.js"></script>
+		
 	</div>
   </body>
 </html>
 
->>>>>>> 8203cdf6886c03a1018f3272a4f1c00a344b143a
