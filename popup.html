@@ -1,36 +1,42 @@
-<html>
-  <head>
-    <title>Google Calendar API Quickstart</title>
-	<div style="height: 200px;width: 200px">
-	</div>
-    <meta charset='utf-8' />
-  </head>
-  <body>
-    <p>Google Calendar API Quickstart</p>
 
-    <!--Add buttons to initiate auth sequence and sign out-->
-    <button id="authorize-button" style="display: none;">Authorize</button>
-    <button id="signout-button" style="display: none;">Sign Out</button>
+<!-- <html> -->
+  <!-- <head> -->
+    <!-- <title>Google Calendar API Quickstart</title> -->
+	<!-- <div style="height: 200px;width: 200px"> -->
+	<!-- </div> -->
+    <!-- <meta charset='utf-8' /> -->
+  <!-- </head> -->
+  <!-- <body> -->
+    <!-- <p>Google Calendar API Quickstart</p> -->
 
-    <pre id="content"></pre>
+    <!-- <!--Add buttons to initiate auth sequence and sign out--> -->
+    <!-- <button id="authorize-button" style="display: none;">Authorize</button> -->
+    <!-- <button id="signout-button" style="display: none;">Sign Out</button> -->
+
+    <!-- <pre id="content"></pre> -->
 	
-	<script src="thirdParty/jquery-3.2.0.js"></script>
-	<script async src="https://apis.google.com/js/api.js"></script>
-	<script async defer src="calendarStuff.js"></script>
+	<!-- <script src="thirdParty/jquery-3.2.0.js"></script> -->
+	<!-- <script async src="https://apis.google.com/js/api.js"></script> -->
+	<!-- <script async defer src="calendarStuff.js"></script> -->
 	
 	
-    <!--<script async defer src="thirdParty/googleAPI.js"
-      onload="this.onload=function(){};handleClientLoad()"
-      onreadystatechange="if (this.readyState === 'complete') this.onload()">
-    </script> -->
-  </body>
-</html>
-<!doctype html>
+    <!-- <!--<script async defer src="thirdParty/googleAPI.js" -->
+      <!-- onload="this.onload=function(){};handleClientLoad()" -->
+      <!-- onreadystatechange="if (this.readyState === 'complete') this.onload()"> -->
+    <!-- </script> --> 
+  <!-- </body> -->
+<!-- </html> -->
+<!-- <!doctype html> -->
 <!--
  This page is shown when the extension button is clicked, because the
  "browser_action" field in manifest.json contains the "default_popup" key with
  value "popup.html".
+<<<<<<< HEAD
  --><!--
+=======
+ -->
+<!doctype html>
+>>>>>>> d78fc78ce4ebf1af0fc53226d6096e12b4596d0d
 <html>
   <head>
     <title>CAMS-to-Calendar</title>
@@ -46,18 +52,88 @@
         overflow: hidden;
         max-width: 400px;
       }
+	  #wrapper {
+		margin:50px;
+		height:300px;
+		}
+		span {
+			display: none;
+		}
     </style>
 
     <!--
       - JavaScript and HTML must be in separate files: see our Content Security
       - Policy documentation[1] for details and explanation.
       -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy-->
 
-    <script src="popup.js"></script>
+  <script src="popup.js"></script>
+  <script src="thirdParty/jquery-3.2.0.js"></script>
   </head>
+  <style>
+  @font-face {
+    font-family: 'museo300';
+    src: url("Museo300.otf");
+}
+  #whiteSpace {
+    width:100%;
+    height:40px;
+  }
+  #header {
+    width: 100%;
+  }
+  #headerObj {
+       color : black;
+       font-family: "museo300";
+       background: violet;
+       opacity: 0.5;
+       width: 100%;
+       font-size: 30px;
+       height: 75px;
+  }
+  #wrapper{
+    height: 100%;
+    background-image: url("image.jpeg");
+  }
+  #buttonDiv {
+    position:absolute;
+    top: 70%;
+    left: 40%;
+  }
+  #TRANSFER {
+    color: blue;
+    font-family: "museo300";
+    height: 25px;
+  }
+  body {
+      text-align: center;
+      width: 250px;
+      height: 350px;
+    }
+  </style>
   <body>
-    <div id="status"></div>
-    <img id="image-result" hidden>
+    <div id="wrapper">
+      <div id="whiteSpace"></div>
+      <div id="header">
+          <h1 id="headerObj" font-size="300px">CAMS-TO-CALENDAR</h1>
+      </div>
+      <div id="buttonDiv">
+        <button id="import">IMPORT</button>
+        <div id="crawl">
+    			<div id="scheduleData">
+    				<!--SCHEDULE HTML FORM GOES HERE-->
+    			</div>
+    			<div id="dateData">
+
+    			</div>
+    		</div>
+        <p id="arrayStr"></p>
+      </div>
+    </div>
+	<script src="./crawler.js"></script>
   </body>
+<<<<<<< HEAD
 </html> -->
+=======
+</html>
+>>>>>>> d78fc78ce4ebf1af0fc53226d6096e12b4596d0d

@@ -4,9 +4,12 @@
   "name": "CAMS-to-Calendar",
   "description": "This extension allows you to import your class Schedule in CAMS into your Google Calendar with the click of a button.",
   "version": "1.0",
-	"background":
+  "icons": {"128" : "icon.png" },
+  "browser_action":
   {
-	"scripts": ["thirdParty/jquery-3.2.0.js"]
+          "default_icon": "icon.png",
+          "default_title": "CAMS-to-Calendar",
+          "default_popup" : "popup.html"
   },
   "browser_action": {
           "default_icon": {      
@@ -25,6 +28,9 @@
 		"js": ["thirdParty/jquery-3.2.0.js","thirdParty/client.js","contentscript.js","calendarStuff.js"]
 	}],
 	
+	"scripts": ["thirdParty/jquery-3.2.0.js"],
+  "scripts": ["thirdParty/googleAPI.js"]
+  },
 	"permissions": [
 		"activeTab",
 		"tabs",
