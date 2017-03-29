@@ -19,9 +19,7 @@
 			},
 			"default_popup": "popup.html"
 	},
-	
-	"content_security_policy": "script-src 'self' https://apis.google.com object-src 'self'",
-"background": {
+	"background": {
 	"scripts": ["thirdParty/jquery-3.2.0.js"]
   },
 	"permissions": [
@@ -30,7 +28,6 @@
 		"https://ajax.googleapis.com/",
 		"https://cams.floridapoly.org/*/",
 		"http://*/",
-		"https://*/",
-		"https://www.googleapis.com/auth/calendar"
+		"https://*/"
 	]
 }

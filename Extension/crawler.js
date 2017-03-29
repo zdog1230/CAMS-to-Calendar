@@ -68,12 +68,51 @@ var getDates = function(){
 	
 };
 
+// Global reference to the status display SPAN
+var newArray = new Array();
+var serverURL = 'http://localhost:8080';
+// POST the data to the server using XMLHttpRequest
+function sendPost() {
+    // Cancel the form submit
+    event.preventDefault();
+
+    // The URL to POST our data to
+    var postUrl = serverURL+'/post';
+
+    // Set up an asynchronous AJAX POST request
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', postUrl, true);
+    
+    // Prepare the data to be POSTed by URLEncoding each field's contents
+    var params = "lorem=ipsum&name=["+newArray.toString()+"]";
+
+    // Set correct header for form data 
+    xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+
+    // Handle request state change events
+    xhr.onreadystatechange = function() { 
+        // If the request completed
+        if (xhr.readyState == 4) {
+            if (xhr.status == 200) {
+                // If it was a success, close the popup after a short delay
+				var newURL = serverURL+'/post/'+xhr.responseText;
+				chrome.tabs.create({ url: newURL });
+            } else {
+                // Show what went wrong
+            }
+        }
+    };
+
+    // Send the request and set status
+    xhr.send(params);
+    statusDisplay.innerHTML = 'Saving...';
+}
+
 var myB = document.getElementById("import");
 myB.onclick = function(){
 	$('#scheduleData').trigger('click');
 	$('#dateData').trigger('click');
 	console.log("check");
-	var newArray = new Array();
 	if((rawData.length != 0) && (startEnd.length != 0)){
 		var i;
 		for(i = 0; i < rawData.length; i++){
@@ -82,9 +121,10 @@ myB.onclick = function(){
 					newArray.push(startEnd[1]);
 				} newArray.push(rawData[i]);
 		}
-		document.getElementById("arrayStr").textContent = newArray.toString();
+		sendPost();
+		//document.getElementById("arrayStr").textContent = newArray.toString();
 	} else {
-		alert("have yet to collect data");
+		console.log("have yet to collect data");
 	}
 	
 };
